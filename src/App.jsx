@@ -9,25 +9,25 @@ import { useEffect } from "react";
 function App() {
   const [expenses, setExpenses] = useState([]);
 
-  // const getExpensesfromDb = async function () {
-  //   const dbExpenses = await axios.get("");
-  //   setExpenses(dbExpenses);
-  // };
-  // const addExpensesToDb = async function (expense) {
-  //   const response = await axios.post("", expense);
-  //   await getExpensesfromDb();
-  // };
-  // useEffect(() => {
-  //   getExpensesfromDb();
-  // });
+  const getExpensesFromDb = async function () {
+    const dbExpenses = await axios.get("/item/getItems");
+    setExpenses(dbExpenses);
+  };
+  const addExpensesToDb = async function (expense) {
+    const response = await axios.post("/item/addItem", expense);
+    await getExpensesFromDb();
+  };
+  useEffect(() => {
+    getExpensesFromDb();
+  });
   return (
     <div className="App">
       <Header
         expenses={expenses}
         setExpenses={setExpenses}
-        //addExpensesToDb={addExpensesToDb}
+        addExpensesToDb={addExpensesToDb}
       ></Header>
-      <Body expenses={expenses} setExpenses={setExpenses}></Body>
+      <Body expenses={expenses} setExpenses={setExpenses} getExpensesFromDb = {getExpensesFromDb}></Body>
     </div>
   );
 }
