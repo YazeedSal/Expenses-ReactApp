@@ -17,9 +17,9 @@ function App() {
     const response = await axios.post("/item/addItem", expense);
     await getExpensesFromDb();
   };
-  useEffect(() => {
-    getExpensesFromDb();
-  });
+  // useEffect(() => {
+  //   getExpensesFromDb();
+  // });
   return (
     <div className="App">
       <Header
@@ -27,7 +27,11 @@ function App() {
         setExpenses={setExpenses}
         addExpensesToDb={addExpensesToDb}
       ></Header>
-      <Body expenses={expenses} setExpenses={setExpenses} getExpensesFromDb = {getExpensesFromDb}></Body>
+      <Body
+        expenses={expenses}
+        setExpenses={setExpenses}
+        getExpensesFromDb={getExpensesFromDb}
+      ></Body>
     </div>
   );
 }

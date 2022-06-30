@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const Body = (props) => {
-  const { expenses } = props;
+  const { expenses, getExpensesFromDb } = props;
   let sum = 0;
   expenses.forEach((element) => {
     sum += parseInt(element.cost);
