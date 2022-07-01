@@ -7,7 +7,7 @@ const Header = (props) => {
   const [inputValue, setInputValue] = useState({ title: "", cost: "" });
 
   const handleInput = (input) => (event) => {
-    // we use the double arrow method to usr the same handler for multiple inputs (so here this is used instead of two handles for each input)
+    // we use the double arrow method to use the same handler for multiple inputs (so here this is used instead of two handles for each input)
     const newValue = { ...inputValue };
     newValue[input] = event.target.value; // the word "input" here refers to the param that was given to the function(in this case as in title or cost)
     setInputValue(newValue);

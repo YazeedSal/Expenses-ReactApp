@@ -13,7 +13,7 @@ const Body = (props) => {
       <h1>total: {sum}</h1>
       {expenses.map((expense, i) => (
         <div key={i}>
-          Task name is {expense.title} and it's cost is {expense.cost}
+          Task name is {expense.name} and it's cost is {expense.cost}
         </div>
       ))}
     </div>

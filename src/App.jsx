@@ -10,16 +10,16 @@ function App() {
   const [expenses, setExpenses] = useState([]);
 
   const getExpensesFromDb = async function () {
-    const dbExpenses = await axios.get("/item/getItems");
-    setExpenses(dbExpenses);
+    const dbExpenses = await axios.get("http://localhost:8080/item/getItems");
+    setExpenses(dbExpenses.data);
   };
   const addExpensesToDb = async function (expense) {
-    const response = await axios.post("/item/addItem", expense);
+    const response = await axios.post("http://localhost:8080/item/addItem", expense);
     await getExpensesFromDb();
   };
-  // useEffect(() => {
-  //   getExpensesFromDb();
-  // });
+  useEffect(() => {
+    getExpensesFromDb();
+  }); 
   return (
     <div className="App">
       <Header
